@@ -1,0 +1,393 @@
+<HTML>
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=gb2312">
+
+<TITLE>简历管理</TITLE>
+<LINK href="image/style.css" type="text/css" rel="stylesheet">
+<STYLE type="text/css">
+input{border:1 #CCCCCC solid;}
+</STYLE>
+
+
+<SCRIPT language="javascript">
+function  SetIDType()
+{ if (document.myform.Nation.value == "中国大陆")
+      document.myform.CardType.options[0].selected = true;
+  else
+      document.myform.CardType.options[1].selected = true;
+}
+function check(){
+<!--姓名检测-->
+if(document.myform.username.value==""){
+alert("请填写你的姓名！")
+document.myform.username.focus();
+return false;
+}
+<!--工作年限检查-->
+
+if(document.myform.WorkYear.value==0){
+alert("请选择工作年限！")
+document.myform.WorkYear.focus();
+return false;
+}
+
+<!--证件号码检查-->
+if(document.myform.CardNumber.value==""){
+alert("请填写证件号码！")
+document.myform.CardNumber.focus();
+return false;
+}
+
+<!--居住地检查-->
+if(document.myform.selProvince.value==""){
+alert("请选择居住地！")
+document.myform.selProvince.focus();
+return false;
+}
+
+<!--手机号码检查-->
+if(document.myform.tel.value==""){
+alert("请填写您的联系方式！")
+document.myform.tel.focus();
+return false;
+}
+<!--email检查-->
+if(document.myform.email.value==""){
+alert("请填写您的E-mail！")
+document.myform.email.focus();
+return false;
+}
+if(document.myform.email.value.indexOf("@",0)==-1){
+alert("您填写E-mail不正确，请重新填写！")
+document.myform.email.focus();
+return false;
+}
+
+<!--教育经历检查-->
+if(document.myform.edu.value==""){
+alert("请填写教育经历！")
+document.myform.edu.focus();
+return false;
+}
+
+<!--求职意向检查-->
+if(document.myform.introself.value==""){
+alert("请填写求职意向！")
+document.myform.introself.focus();
+return false;
+}
+return true;
+}
+</SCRIPT>
+</HEAD>
+<BODY>
+
+<DIV class="main">
+  <DIV id="logo"><IMG src="image/logo.gif"></DIV>
+  <DIV id="menu"><A href="login.html"><IMG src="image/menu1-2.gif"></A><A href="search.html"><IMG src="image/menu2-2.gif"></A><A href="intro.html"><IMG src="image/menu3-1.gif"></A></DIV>
+  <DIV id="menu-bg1">简历中心 | 求职信 | 简历指导 </DIV>
+  <!--简历管理开始-->
+  <DIV><TABLE width="920" border="0" cellspacing="0" cellpadding="0" align="center">
+    <TR>
+      <TD class="intro-left" valign="top">
+        <DIV><IMG src="image/intro-left1.gif"></DIV>
+	  <DIV class="intro-l1"><IMG src="image/register-arrow.gif"> 我的简历</DIV>
+	  <DIV><IMG src="image/intro-left2.gif"></DIV>
+	  <DIV class="intro-l2"><IMG src="image/intro-1.gif" vspace="4" align="absmiddle"> <A href="#base">基本个人信息</A><BR>
+  <IMG src="image/intro-1.gif" vspace="4" align="absmiddle"> <A href="#jianli">工作经验</A><BR>
+  <IMG src="image/intro-1.gif" vspace="4" align="absmiddle"> <A href="#jianli">教育经历</A><BR>
+  <IMG src="image/intro-1.gif" vspace="4" align="absmiddle"> <A href="#jianli">培训经历</A><BR>
+  <IMG src="image/intro-1.gif" vspace="4" align="absmiddle"> 语言能力<BR>
+  <IMG src="image/intro-1.gif" vspace="4" align="absmiddle"> <A href="#jianli">求职意向/自我评价</A><BR>
+  <IMG src="image/intro-1.gif" vspace="4" align="absmiddle"> 附加信息<BR>
+  <IMG src="image/intro-1.gif" vspace="4" align="absmiddle"> 证书<BR>
+  <IMG src="image/intro-1.gif" vspace="4" align="absmiddle"> 附件</DIV>
+  <DIV><IMG src="image/intro-left3.gif"></DIV>
+	  <DIV class="intro-l2"><IMG src="image/intro-1.gif" vspace="4" align="absmiddle"> <A href="#gaoji">高级人才附加信息</A><BR>
+  <IMG src="image/intro-1.gif" vspace="4" align="absmiddle"> <A href="#gaoji">IT技能</A> <BR>
+  <IMG src="image/intro-1.gif" vspace="4" align="absmiddle"> <A href="#gaoji">项目经验</A></DIV>      </TD>
+      <TD valign="top" class="intro-right" id="base"><DIV class="intro-l1"><IMG src="image/register-arrow.gif"> 基本个人信息 (*为必填项)</DIV>
+	  <DIV><TABLE width="100%" border="0" cellspacing="0" cellpadding="0">
+	    <TR height="1">
+	      <TD width="100%" bgColor="#dddddd"></TD></TR>
+	    <TR height="1">
+	      <TD width="100%" bgColor="#eeeeee"></TD></TR>
+	    <TR height="3">
+	      <TD width="100%" bgColor="#f7f7f7"></TD></TR>
+	    <TR height="8">
+	      <TD width="100%" bgColor="#ffffff"></TD></TR>
+  </TABLE>
+  </DIV>
+  <!--简历注册开始-->
+  <DIV><FORM action="intro.html" method="post" name="myform" onSubmit="return check()">
+  <TABLE width="99%" border="0" cellspacing="0" cellpadding="0" align="right">
+    <TR>
+      <TD width="80" height="30"><SPAN class="yellow">*</SPAN> 姓名</TD>
+      <TD width="300"><INPUT name="username" type="text"></TD>
+	  <TD width="80"><SPAN class="yellow">*</SPAN> 性别</TD>
+      <TD><INPUT name="sex" type="radio" value="男" checked style="border:0;"> 男&nbsp; <INPUT name="sex" type="radio" value="女" style="border:0;"> 女</TD>
+    </TR>
+    <TR>
+      <TD height="30"><SPAN class="yellow">*</SPAN> 出生日期</TD>
+      <TD><SELECT name="BirthYear"> <OPTION value=1997 
+              selected>1997</OPTION><OPTION value=1996>1996</OPTION><OPTION 
+              value=1995>1995</OPTION><OPTION value=1994>1994</OPTION><OPTION 
+              value=1993>1993</OPTION><OPTION value=1992>1992</OPTION><OPTION 
+              value=1991>1991</OPTION><OPTION value=1990>1990</OPTION><OPTION 
+              value=1989>1989</OPTION><OPTION value=1988>1988</OPTION><OPTION 
+              value=1987>1987</OPTION><OPTION value=1986>1986</OPTION><OPTION 
+              value=1985>1985</OPTION><OPTION value=1984>1984</OPTION><OPTION 
+              value=1983>1983</OPTION><OPTION value=1982>1982</OPTION><OPTION 
+              value=1981>1981</OPTION><OPTION value=1980>1980</OPTION><OPTION 
+              value=1979>1979</OPTION><OPTION value=1978>1978</OPTION><OPTION 
+              value=1977>1977</OPTION><OPTION value=1976>1976</OPTION><OPTION 
+              value=1975>1975</OPTION><OPTION value=1974>1974</OPTION><OPTION 
+              value=1973>1973</OPTION><OPTION value=1972>1972</OPTION><OPTION 
+              value=1971>1971</OPTION><OPTION value=1970>1970</OPTION><OPTION 
+              value=1969>1969</OPTION><OPTION value=1968>1968</OPTION><OPTION 
+              value=1967>1967</OPTION><OPTION value=1966>1966</OPTION><OPTION 
+              value=1965>1965</OPTION><OPTION value=1964>1964</OPTION><OPTION 
+              value=1963>1963</OPTION><OPTION value=1962>1962</OPTION><OPTION 
+              value=1961>1961</OPTION><OPTION value=1960>1960</OPTION><OPTION 
+              value=1959>1959</OPTION><OPTION value=1958>1958</OPTION><OPTION 
+              value=1957>1957</OPTION><OPTION value=1956>1956</OPTION><OPTION 
+              value=1955>1955</OPTION><OPTION value=1954>1954</OPTION><OPTION 
+              value=1953>1953</OPTION><OPTION value=1952>1952</OPTION><OPTION 
+              value=1951>1951</OPTION><OPTION value=1950>1950</OPTION><OPTION 
+              value=1949>1949</OPTION><OPTION value=1948>1948</OPTION><OPTION 
+              value=1947>1947</OPTION><OPTION value=1946>1946</OPTION><OPTION 
+              value=1945>1945</OPTION><OPTION value=1944>1944</OPTION><OPTION 
+              value=1943>1943</OPTION><OPTION value=1942>1942</OPTION><OPTION 
+              value=1941>1941</OPTION><OPTION value=1940>1940</OPTION><OPTION 
+              value=1939>1939</OPTION><OPTION value=1938>1938</OPTION><OPTION 
+              value=1937>1937</OPTION></SELECT> 年 <SELECT name="BirthMonth"> 
+        <OPTION value=1 selected>1</OPTION><OPTION 
+              value=2>2</OPTION><OPTION value=3>3</OPTION><OPTION 
+              value=4>4</OPTION><OPTION value=5>5</OPTION><OPTION 
+              value=6>6</OPTION><OPTION value=7>7</OPTION><OPTION 
+              value=8>8</OPTION><OPTION value=9>9</OPTION><OPTION 
+              value=10>10</OPTION><OPTION value=11>11</OPTION><OPTION 
+              value=12>12</OPTION></SELECT> 月 <SELECT  name="BirthDay"> 
+          <OPTION value=1 selected>1</OPTION><OPTION 
+              value=2>2</OPTION><OPTION value=3>3</OPTION><OPTION 
+              value=4>4</OPTION><OPTION value=5>5</OPTION><OPTION 
+              value=6>6</OPTION><OPTION value=7>7</OPTION><OPTION 
+              value=8>8</OPTION><OPTION value=9>9</OPTION><OPTION 
+              value=10>10</OPTION><OPTION value=11>11</OPTION><OPTION 
+              value=12>12</OPTION><OPTION value=13>13</OPTION><OPTION 
+              value=14>14</OPTION><OPTION value=15>15</OPTION><OPTION 
+              value=16>16</OPTION><OPTION value=17>17</OPTION><OPTION 
+              value=18>18</OPTION><OPTION value=19>19</OPTION><OPTION 
+              value=20>20</OPTION><OPTION value=21>21</OPTION><OPTION 
+              value=22>22</OPTION><OPTION value=23>23</OPTION><OPTION 
+              value=24>24</OPTION><OPTION value=25>25</OPTION><OPTION 
+              value=26>26</OPTION><OPTION value=27>27</OPTION><OPTION 
+              value=28>28</OPTION><OPTION value=29>29</OPTION><OPTION 
+              value=30>30</OPTION><OPTION value=31>31</OPTION></SELECT> 日</TD>
+		  <TD><SPAN class="yellow">*</SPAN> 工作年限</TD>
+      <TD><SELECT style="width: 110px" name="WorkYear"> <OPTION 
+              value="0" selected>--请选择--</OPTION> <OPTION 
+              value="在读学生">在读学生</OPTION><OPTION value="应届毕业生">应届毕业生</OPTION><OPTION 
+              value="一年以上">一年以上</OPTION><OPTION value="二年以上">二年以上</OPTION><OPTION 
+              value="三年以上">三年以上</OPTION><OPTION value="寺年以上">五年以上</OPTION><OPTION 
+              value="八年以上">八年以上</OPTION><OPTION value="十年以上">十年以上</OPTION></SELECT></TD>
+    </TR>
+    <TR>
+      <TD height="30">国家或地区</TD>
+      <TD><SELECT style="WIDTH: 130px" 
+            onchange="JavaScript:SetIDType()" name="Nation"> <OPTION 
+              value="中国大陆" selected>中国大陆</OPTION><OPTION 
+              value="中国香港">中国香港</OPTION><OPTION value="中国澳门">中国澳门</OPTION><OPTION 
+              value="中国台湾">中国台湾</OPTION><OPTION value="非洲">非洲</OPTION><OPTION 
+              value="加拿大">加拿大</OPTION><OPTION value="欧洲">欧洲</OPTION><OPTION 
+              value="法国">法国</OPTION><OPTION value="德国">德国</OPTION><OPTION 
+              value="日本">日本</OPTION><OPTION value="韩国">韩国</OPTION><OPTION 
+              value="北美">北美</OPTION><OPTION value="新加坡">新加坡</OPTION><OPTION 
+              value="东南亚">东南亚</OPTION><OPTION value="南美">南美</OPTION><OPTION 
+              value="英国">英国</OPTION><OPTION value="美国">美国</OPTION><OPTION 
+              value="西亚">西亚</OPTION><OPTION value="其他">其他</OPTION></SELECT></TD>
+      <TD>&nbsp;&nbsp;户&nbsp;&nbsp;&nbsp;&nbsp;口</TD>
+      <TD><SELECT style="WIDTH: 110px" name=HuKou> <OPTION 
+              value=00 selected>请选择</OPTION> <OPTION value="北京">北京</OPTION><OPTION 
+              value="上海">上海</OPTION><OPTION value="天津">天津</OPTION><OPTION 
+              value="重庆">重庆</OPTION><OPTION value="江苏">江苏</OPTION><OPTION 
+              value="浙江">浙江</OPTION><OPTION value="广东">广东</OPTION><OPTION 
+              value="海南">海南</OPTION><OPTION value="福建">福建</OPTION><OPTION 
+              value="山东">山东</OPTION><OPTION value="江西">江西</OPTION><OPTION 
+              value="四川">四川</OPTION><OPTION value="安徽">安徽</OPTION><OPTION 
+              value="河北">河北</OPTION><OPTION value="河南">河南</OPTION><OPTION 
+              value="湖北">湖北</OPTION><OPTION value="湖南">湖南</OPTION><OPTION 
+              value="陕西">陕西</OPTION><OPTION value="山西">山西</OPTION><OPTION 
+              value="黑龙江">黑龙江</OPTION><OPTION value="辽宁">辽宁</OPTION><OPTION 
+              value="吉林">吉林</OPTION><OPTION value="广西">广西</OPTION><OPTION 
+              value="云南">云南</OPTION><OPTION value="贵州">贵州</OPTION><OPTION 
+              value="甘肃">甘肃</OPTION><OPTION value="内蒙">内蒙</OPTION><OPTION 
+              value="宁夏">宁夏</OPTION><OPTION value="西藏">西藏</OPTION><OPTION 
+              value="新疆">新疆</OPTION><OPTION value="青海">青海</OPTION><OPTION 
+              value="香港">香港</OPTION><OPTION value="澳门">澳门</OPTION><OPTION 
+              value="台湾">台湾</OPTION><OPTION value="国外">国外</OPTION></SELECT></TD>
+    </TR>
+    <TR>
+      <TD height="30"><SPAN class="yellow">*</SPAN> 证件类型</TD>
+      <TD><SELECT style="WIDTH: 130px" name="CardType"> <OPTION 
+              value="身份证" selected>身份证</OPTION><OPTION value="护照">护照</OPTION><OPTION 
+              value="军人证">军人证</OPTION><OPTION value="香港身份证">香港身份证</OPTION><OPTION 
+              value="其它">其它</OPTION></SELECT></TD>
+      <TD><SPAN class="yellow">*</SPAN> 证&nbsp;件&nbsp;号</TD>
+      <TD><INPUT name="CardNumber" type="text"></TD>
+    </TR>
+    <TR>
+      <TD height="30">&nbsp;&nbsp;目前年薪</TD>
+      <TD><SELECT style="WIDTH: 130px" name="Salary"> 
+        <OPTION value=0 selected>--请输入--</OPTION> <OPTION 
+              value="2万以下">2万以下</OPTION><OPTION value="2-3万">2-3万</OPTION><OPTION 
+              value="3-4万">3-4万</OPTION><OPTION value="4-5万">4-5万</OPTION><OPTION 
+              value="5-6万">5-6万</OPTION><OPTION value="6-7万">6-8万</OPTION><OPTION 
+              value="8-10万">8-10万</OPTION><OPTION value="10-15万">10-15万</OPTION><OPTION 
+              value="15-30万">15-30万</OPTION><OPTION value="30-50万">30-50万</OPTION><OPTION 
+              value="50-100万">50-100万</OPTION><OPTION 
+          value="100万以上">100万以上</OPTION></SELECT> / 年</TD>
+      <TD>&nbsp;&nbsp;币&nbsp;&nbsp;&nbsp;&nbsp;种</TD>
+      <TD><SELECT style="WIDTH: 80px" name="CurrType"> <OPTION 
+              value="人民币" selected>人民币</OPTION><OPTION value="港币">港币</OPTION><OPTION 
+              value="美元">美元</OPTION><OPTION value="日元">日元</OPTION><OPTION 
+              value="欧元">欧元</OPTION><OPTION value="其它">其它</OPTION></SELECT></TD>
+    </TR>
+    <TR>
+      <TD height="30"><SPAN class="yellow">*</SPAN> 现居住地</TD>
+      <TD colspan="3">
+        <SELECT name="selProvince" id="selProvince" onChange="changeCity( )" style="WIDTH: 130px">
+          <OPTION>--选择省份--</OPTION>
+          </SELECT>
+        <SELECT name="selCity" id="selCity" style="WIDTH: 130px">
+          <OPTION>--选择城市--</OPTION></SELECT>        </TD> </TR>
+    <TR>
+      <TD height="30"><SPAN class="yellow">*</SPAN> 联系方式</TD>
+      <TD><INPUT class=textstyle style="WIDTH: 160px"  name="tel"></TD>
+	  <TD><SPAN class="yellow">*</SPAN> E-mail</TD>
+      <TD><INPUT name="email" type="text"></TD>
+    </TR>
+    <TR><TD height="30">&nbsp;&nbsp;地址</TD>
+    <TD><INPUT name="address" type="text" size="35"></TD>
+    <TD>&nbsp;&nbsp;邮编</TD>
+    <TD><INPUT name="ZipCode" type="text" size="5"></TD>
+    </TR>
+    <TR><TD height="30">&nbsp;&nbsp;个人主页</TD>
+    <TD colspan="3"><INPUT name="homepage" type="text" size="35"></TD>
+    </TR>
+    <TR><TD colspan="4" id="jianli"><DIV class="intro-l1"><IMG src="image/register-arrow.gif"> 我的简历</DIV>
+	  <DIV><TABLE width="100%" border="0" cellspacing="0" cellpadding="0">
+	    <TR height="1">
+	      <TD width="100%" bgColor="#dddddd"></TD></TR>
+	    <TR height="1">
+	      <TD width="100%" bgColor="#eeeeee"></TD></TR>
+	    <TR height="3">
+	      <TD width="100%" bgColor="#f7f7f7"></TD></TR>
+	    <TR height="8">
+	      <TD width="100%" bgColor="#ffffff"></TD></TR>
+  </TABLE>
+  </DIV></TD></TR>
+    <TR><TD height="60">&nbsp;&nbsp;工作经验</TD>
+    <TD colspan="3"><TEXTAREA name="Cwork" cols="60" rows="3"></TEXTAREA></TD>
+    </TR>
+    <TR><TD height="60"><SPAN class="yellow">*</SPAN> 教育经历</TD>
+    <TD colspan="3"><TEXTAREA name="edu" cols="60" rows="3"></TEXTAREA></TD>
+    </TR>
+    <TR><TD height="60">&nbsp;&nbsp;培训经历</TD>
+    <TD colspan="3"><TEXTAREA name="train" cols="60" rows="3"></TEXTAREA></TD>
+    </TR>
+    <TR><TD height="60"><SPAN class="yellow">*</SPAN> 求职意向</TD>
+    <TD colspan="3"><TEXTAREA name="introself" cols="60" rows="3"></TEXTAREA></TD>
+    </TR>
+    <TR><TD colspan="4" id="gaoji"><DIV class="intro-l1"><IMG src="image/register-arrow.gif"> 人才附加信息</DIV>
+	  <DIV><TABLE width="100%" border="0" cellspacing="0" cellpadding="0">
+	    <TR height="1">
+	      <TD width="100%" bgColor="#dddddd"></TD></TR>
+	    <TR height="1">
+	      <TD width="100%" bgColor="#eeeeee"></TD></TR>
+	    <TR height="3">
+	      <TD width="100%" bgColor="#f7f7f7"></TD></TR>
+	    <TR height="8">
+	      <TD width="100%" bgColor="#ffffff"></TD></TR>
+  </TABLE>
+  </DIV></TD></TR>
+    <TR><TD height="60">&nbsp;&nbsp;附加信息</TD>
+    <TD colspan="3"><TEXTAREA name="otheredit" cols="60" rows="3"></TEXTAREA></TD>
+    </TR>
+    <TR><TD height="60">&nbsp;&nbsp;IT技能</TD>
+    <TD colspan="3"><TEXTAREA name="ITedit" cols="60" rows="3"></TEXTAREA></TD>
+    </TR>
+    <TR><TD height="60">&nbsp;&nbsp;项目经验</TD>
+    <TD colspan="3"><TEXTAREA name="project" cols="60" rows="3"></TEXTAREA></TD>
+    </TR>
+    <TR><TD colspan="4"><HR size="2" color="#ff7000" width="96%" align="center"></TD></TR>
+    <TR><TD colspan="4" height="40" align="center"><INPUT name="b1" type="submit" value="保存" class="login-over"></TD></TR>
+  </TABLE>
+  </FORM>	
+  </DIV>	</TD>
+    </TR>
+  </TABLE>
+  </DIV>
+  <SCRIPT language="javascript">
+var cityList = new Array();
+      cityList['北京市'] = ['北京市','朝阳区','东城区','西城区', '海淀区','宣武区','丰台区','怀柔','延庆','房山'];
+	 cityList['上海市'] = ['上海市','宝山区','长宁区','丰贤区', '虹口区','黄浦区','青浦区','南汇区','徐汇区','卢湾区'];
+	 cityList['广州省'] = ['广州省','广州市','惠州市','汕头市','珠海市','佛山市','中山市','东莞市'];
+     cityList['深圳市'] = ['深圳市','福田区', '罗湖区', '盐田区', '宝安区', '龙岗区', '南山区', '深圳周边'];
+	 cityList['重庆市'] =['重庆市','俞中区', '南岸区', '江北区', '沙坪坝区', '九龙坡区', '渝北区', '大渡口区', '北碚区'];
+     cityList['天津市'] = ['天津市','和平区', '河西区', '南开区', '河北区', '河东区', '红桥区', '塘古区', '开发区'];
+	 cityList['江苏省'] = ['江苏省','南京市','苏州市','无锡市'];
+	 cityList['浙江省'] = ['浙江省','杭州市','宁波市','温州市'];
+	 cityList['四川省'] = ['四川省','成都市'];
+	 cityList['海南省'] = ['海南省','海口市'];
+	cityList['福建省'] = ['福建省','福州市','厦门市','泉州市','漳州市'];
+	 cityList['山东省'] = ['山东省','济南市','青岛市','烟台市'];
+	 cityList['江西省'] = ['江西省','南昌市'];
+	 cityList['广西'] = ['广西','南宁市'];
+	 cityList['安徽省'] = ['安徽省','合肥市'];
+	 cityList['河北省'] = ['河北省','石家庄市'];
+	 cityList['河南省'] = ['河南省','郑州市'];
+	 cityList['湖北省'] = ['湖北省','武汉市','宜昌市'];
+	 cityList['湖南省'] = ['湖南省','长沙市'];
+	 cityList['陕西省'] = ['陕西省','西安市'];
+	 cityList['山西省'] = ['山西省','太原市'];
+	 cityList['黑龙江省'] = ['黑龙江省','哈尔滨市'];
+	 cityList['国外'] = ['国外'];
+	 cityList['其他'] = ['其他'];
+	 
+  function changeCity()
+  {
+     var province=document.myform.selProvince.value; 
+	 document.myform.selCity.options.length=0;
+	 for (var i in cityList) 
+	 {
+	        if (i == province) 
+			{
+                for (var j in cityList[i]) 
+				{
+                     document.myform.selCity.options.add(new Option(cityList[i][j], cityList[i][j]));
+                }
+            }
+       }
+	 document.myform.selCity.options.selctIndex=0;
+  }
+  
+  function AllCity(){
+       for (var i in cityList)  
+	   {
+         document.myform.selProvince.options.add(new Option(i, i)); 
+		}
+        document.myform.selProvince.selectedIndex = 0; 		
+  }
+    window.onLoad=AllCity();
+</SCRIPT>
+</DIV>
+<DIV id="bottom-bg"class="bottom-bg">网站导航 | <A href="index.html" class="A-white">网站首页</A> | <A href="search.html" class="A-white">职位搜索</A> | <A href="login.html" class="A-white">Myjob</A> | <A href="register.html" class="A-white">用户注册</A> | <A href="login.html" class="A-white">用户登录</A> | <A href="intro.html" class="A-white">简历管理</A> | <A href="company.html" class="A-white">招聘公司</A></DIV>
+<DIV id="bottom" class="bottom">人才招聘 Email:hr@51job.com<BR>个人求职 Email:club@51job.com　或垂询:800-820-5100 
+<BR>
+未经本招聘网站同意，不得转载本网站之所有招聘信息及作品 
+<BR>
+无忧工作网版权所有&copy;1999-2007<BR>
+<A href="http://www.miibeian.gov.cn" target="_blank"><IMG src="image/bottom1.gif" border="0"></A></DIV>
+</BODY>
+</HTML>

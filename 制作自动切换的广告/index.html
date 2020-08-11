@@ -1,0 +1,55 @@
+<html>
+<head>
+<title>自动切换的广告</title>
+</head>
+
+<body>
+<style type="text/css">
+.number
+{
+color:#0000FF;
+background-color:#CCCCCC;
+text-align:center;
+font-family:Arial, Helvetica, sans-serif;
+font-weight:bold;
+}
+.select
+{
+color:#FFFFFF;
+background-color:#0000FF;
+text-align:center;
+font-family:Arial, Helvetica, sans-serif;
+font-weight:bold;
+}
+</style>
+<script type="text/javascript">
+var id=1;
+function show(number)
+{
+if(isNaN(number))
+    return;
+document.getElementById(id).className="number";
+id=number;
+if(id>5)
+    id=1;
+var filename="ad/"+id+".jpg";
+document.getElementById("imgAd").src=filename;
+document.getElementById(id).className="select";
+}
+setInterval("show(id+1)",3000);
+</script>
+<table>
+<tr><td colspan="6">
+<img id="imgAd" src="ad/1.jpg" width="450" height="300"/>
+</td></tr>
+<tr>
+<td width="300"></td>
+<td><div id="1" class="select" onMouseMove="show(1)">1</div></td>
+<td><div id="2" class="number" onMouseMove="show(2)">2</div></td>
+<td><div id="3" class="number" onMouseMove="show(3)">3</div></td>
+<td><div id="4" class="number" onMouseMove="show(4)">4</div></td>
+<td><div id="5" class="number" onMouseMove="show(5)">5</div></td>
+</tr>
+</table>
+</body>
+</html>

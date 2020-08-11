@@ -1,0 +1,29 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>判断每月有多少天</title>
+	</head>
+	<body>
+		<script language="JavaScript">
+			document.writeln("请在文本框输入查询的年份和月份: "); // 提示您输入年
+			var year = parseInt(window.prompt("输入要查询的年份","")); // 从键盘输入年，并保存到变量year中
+			var month = parseInt(window.prompt("输入要查询的月份",""));
+			var isRn = (year % 4 == 0 && !(year % 100 == 0) || year % 400 == 0);
+
+			/* 判断天数 */
+			if (month == 1 || month == 3 || month == 5 || month == 7 || month == 8
+					|| month == 10 || month == 12) { // 判断是否是大月
+				document.writeln(year + "年" + month + "月有31天");
+			} else if (isRn && month == 2) { // 判断是否是闰年的2月
+				document.writeln(year + "年2月有29天");
+			} else if (!isRn && month == 2) { // 如果不是闰年的2月，判断是否是平年的2月
+				document.writeln(year + "年2月有28天");
+			} else if (month == 4 || month == 6 || month == 9 || month == 11) { // 判断是否是小月
+				document.writeln(year + "年" + month + "月有30天");
+			} else { // 如果以上月份都不是
+				document.writeln("输入的月份不正确"); // 输出提示输入错误的信息
+			}
+		</script>
+	</body>
+</html>

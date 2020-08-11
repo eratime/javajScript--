@@ -1,0 +1,122 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style>
+    *{
+      margin:0 auto;
+      padding: 0;
+    }
+#menu_1{
+	background:#39F;
+	width:800px;
+	height:40px;
+}
+{
+	     background:#69F;
+         width:800px;
+		  margin: 0 auto;
+         }
+ul{
+	list-style:none;
+}
+ ul li{
+      float: left;
+      line-height: 40px;
+      text-align: center;
+      position: relative;
+	  width:110px;
+    }
+ul li ul{
+	background:#39F;
+	position:absolute;
+	top:40px;
+	left:0;
+	display:none;
+	
+}
+ul li ul li{
+	float:left;
+
+}
+#li2{
+	 float:none;
+	 background: #eee;
+      margin-top: 2px;
+	  width:110px;
+}
+a{
+      text-decoration: none;
+      color: #000;
+      display: block;
+      padding: 0 10px;
+      height: 40px;
+    }
+a:hover{
+	background:#FC0;
+}
+</style>
+<script>
+/*window.onload=function(){
+var a_li=document.getElementsByTagName('li');
+	 for(var i=0;i<a_li.length;i++){
+		   if(a_li[i].getElementsByTagName('ul').length){
+		     a_li[i].onmouseover=function(){
+			this.getElementsByTagName('ul')[0].style.display="block"
+		 
+		    }
+	
+		    a_li[i].onmouseout=function(){
+			this.getElementsByTagName('ul')[0].style.display="none"
+		       }
+	       	
+	}
+	}
+
+}*/
+
+function show(id){
+	
+	 document.getElementById(id).style.display="block"
+		
+}
+	
+
+function hide(id){
+	document.getElementById(id).style.display='none'
+		}
+
+
+</script>
+</head>
+
+<body>
+<div id="menu_1">
+ <ul>
+    <li><a href="#">主页</a></li>
+    <li><a href="#" onmouseover="show('ul2')" onmouseout="hide('ul2')">学院概况</a>
+      <ul id="ul2"  onmouseover="show('ul2')" onmouseout="hide('ul2')">
+          <li><a href="#">学院简介</a></li>
+          <li><a href="#">校园风光</a></li>
+          <li><a href="#">领导关怀</a></li>
+          <li><a href="#">发展历程</a></li>
+      </ul></li>
+    <li><a href="#" onmouseover="show('ul3')" onmouseout="hide('ul3')">系部设置</a>
+        <ul id="ul3"  onmouseover="show('ul3')" onmouseout="hide('ul3')">          <li><a href="#">信息技术系</a></li>
+          <li><a href="#">艺术设计系</a></li>
+          <li><a href="#">经济贸易系</a></li>
+          <li><a href="#">电气应用系</a></li>
+      </ul></li>
+    <li><a href="#" onmouseover="show('ul4')" onmouseout="hide('ul4')">教务科研</a>
+    <ul id="ul4"  onmouseover="show('ul4')" onmouseout="hide('ul4')"><li><a href="#">教务动态</a></li>
+          <li><a href="#">教务管理</a></li>
+          <li><a href="#">教研成果</a></li>
+          <li><a href="#">资源共享</a></li>
+      </ul></li>
+    <li><a href="#">党团建设</a></li>
+    <li><a href="#">招生就业</a></li>
+  </ul>
+</div>
+</body>
+</html>

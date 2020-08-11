@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+.pic{
+	width:300px;
+	height:200px;
+	border:#06F solid 10px;
+	padding-top:10px;
+	padding-left:50px;
+	position:absolute;
+	top:50px;
+	left:10px;
+}
+.text{
+	position: absolute;
+	width: 478px;
+	left: 9px;
+	top: 425px;
+	height: -114px;
+}
+</style>
+<script type="text/javascript">
+  // document.write(document.getElementById("wp_1").offsetLeft);
+  function get(){
+     // alert(document.getElementById("kk").clientHeight);
+	document.getElementById("text_1").value=(document.getElementById("pic_1").clientLeft);
+	document.getElementById("text_2").value=(document.getElementById("pic_1").offsetLeft);	
+	document.getElementById("text_3").value=(document.getElementById("pic_1").offsetWidth);
+   document.getElementById("text_4").value=(document.getElementById("pic_1").clientWidth);
+	document.getElementById("text_5").value=(document.getElementById("pic_1").clientHeight);
+   	document.getElementById("text_6").value=(document.getElementById("pic_1").offsetHeight);
+
+  }
+</script>
+</head>
+
+<body>
+<div class="pic" id="pic_1" onClick="get()"><input type="text" width="50px" height="30px" value="图片"/></div>
+<div class="text">
+<span>clientLeft(边框)</span><input id="text_1" type="text"><br>
+<span>offsetLeft(左边距)</span><input id="text_2" type="text"><br><br>
+<span>offsetWidth(可见宽度包括边框)</span><input id="text_3" type="text">
+<br>
+<span>offsetHeight(可见高度包括边框)</span><input id="text_6" type="text"><br><br>
+<span>clientWidth(可见宽度不包括边框)</span><input id="text_4" type="text">
+<br>
+<span>clientHeight(可见高度不包括边框)</span><input id="text_5" type="text">
+<br>
+<span style="color:#F00; font-size:18px;" >注意：可见高度或宽度会随着元素的内边距改变而改变</span>
+</div>
+
+</body>
+</html>

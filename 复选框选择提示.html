@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+</head>
+
+<body>
+<script type="text/javascript">
+function getElement()
+  {
+  var x=document.getElementsByName("myinput");
+  for(var i=0;i<x.length;i++)
+  {
+     if(x[i].checked){
+     alert("你的爱好是："+x[i].value);
+	 }
+  }
+  }
+ 
+</script>
+
+<input name="myinput"  id="myInput_1" type="checkbox" size="20" value="唱歌"/>唱歌
+<input name="myinput" id="myInput_2" type="checkbox" size="20" value="画画" />画画
+<input name="myinput" id="myInput_3" type="checkbox" size="20" value="钢琴"/>钢琴
+<input type="button" value="确认" onclick="getElement()"/>
+
+
+</body>
+</html>

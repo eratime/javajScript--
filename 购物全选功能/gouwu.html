@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<script language="javascript">
+function checkAll(boolValue){
+	var allCheckBoxs=document.getElementsByName("isBuy");
+	for(var i=0;i<allCheckBoxs.length;i++)
+	{
+		if(allCheckBoxs[i].type=="checkbox")
+		allCheckBoxs[i].checked=boolValue;
+		}
+	}
+
+</script>
+</head>
+
+<body>
+<table width="200" border="1">
+  <tr>
+    <td colspan="2"><img src="images/head.jpg" width="958" height="175"></td>
+  </tr>
+  <tr>
+    <td width="105"><a href="javascript:checkAll(true)">全选</a>&nbsp;&nbsp;&nbsp;<a href="javascript:checkAll(false)">不全选</a></td>
+    <td width="847">&nbsp;</td>
+  </tr>
+  <tr>
+    <td>&nbsp;&nbsp;&nbsp;&nbsp;<input name="isBuy" id="isBuy" type="checkbox" value="sanguo"></td>
+    <td><img src="images/one.jpg" width="843" height="80"></td>
+  </tr>
+  <tr>
+    <td>&nbsp;&nbsp;&nbsp;&nbsp;<input name="isBuy" id="isBuy" type="checkbox" value="paozhu"></td>
+    <td><img src="images/two.jpg" width="842" height="79"></td>
+  </tr>
+  <tr>
+    <td>&nbsp;&nbsp;&nbsp;&nbsp;<input name="isBuy" id="isBuy" type="checkbox" value="paopao"></td>
+    <td><img src="images/three.jpg" width="844" height="81"></td>
+  </tr>
+  <tr>
+    <td>&nbsp;&nbsp;&nbsp;&nbsp;<input name="isBuy" id="isBuy" type="checkbox" value="jinwu"></td>
+    <td><img src="images/four.jpg" width="847" height="85"></td>
+  </tr>
+</table>
+
+</body>
+</html>

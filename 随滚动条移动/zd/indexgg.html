@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<link href="css/stlye.css" rel="stylesheet" type="text/css">
+<script language="javascript">
+	var advqTop=10;	
+	function move(){
+		var scrollTops=document.body.scrollTop || document.documentElement.scrollTop;
+		document.getElementById("advq").style.top=(advqTop+scrollTops)+"px";
+		}
+	function closeMe(){
+		document.getElementById("advq").style.display="none";
+		document.getElementById("close_1").style.display="none";
+	}
+	window.onscroll=move;
+</script>
+</head>
+<body>	
+<div class="advq" id="advq" style="position:absolute; top:100px; left:400;" >
+        <img src="images/adv.jpg" width="280" height="72">
+                      
+       	    	<div id="close_1" style="position: absolute; top: 0px; right: 0px; z-index: 1;"  onClick="closeMe()">
+                <img src="images/close.jpg" width="13" height="13"> 
+                </div></div>
+                
+        <div><img src="images/主页1.jpg" width="1001" height="713"> </div>  
+        <div><img src="images/主页2.jpg" width="988" height="572"></div>
+        
+</body>
+</html>

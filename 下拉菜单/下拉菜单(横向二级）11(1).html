@@ -1,0 +1,86 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+    *{
+      margin:0 auto;
+      padding: 0;
+    }
+.menu_1{
+	background:#39F;
+	width:800px;
+	height:40px;
+}
+
+ul{
+	list-style:none;
+}
+.menu_1>ul>li{
+      float: left;
+      line-height: 40px;
+      text-align: center;
+	  width:110px;
+    }
+.submenu{
+	background:#F60;
+	position:absolute;
+}
+.submenu li{
+	float:left;
+}
+
+a{
+      text-decoration: none;
+      color: #000;
+      display: block;
+      padding: 0 10px;
+      height: 40px;
+    }
+a:hover{
+	background:#FC0;
+}
+</style>
+<script>
+window.onload=function(){
+var a_li=document.getElementsByTagName('li');
+	 for(var i=0;i<a_li.length;i++){
+		   if(a_li[i].getElementsByTagName('ul').length>0){
+		     a_li[i].onmouseover=function(){
+			this.getElementsByTagName('ul')[0].style.display="block"
+		 
+		    }
+	
+		    a_li[i].onmouseout=function(){
+			this.getElementsByTagName('ul')[0].style.display="none"
+		       }
+	       	
+	}
+	}
+
+}
+
+</script>
+</head>
+
+<body>
+<div class="menu_1">
+ <ul>
+    <li><a href="#">主页</a></li>
+    <li><a href="#" >学院概况</a>
+      <ul class="submenu">
+          <li><a href="#">学院简介</a></li>
+          <li><a href="#">校园风光</a></li>
+          <li><a href="#">领导关怀</a></li>
+          <li><a href="#">发展历程</a></li>
+      </ul>
+    </li>
+    <li><a href="#">系部设置</a></li>
+    <li><a href="#">教务科研</a></li>
+    <li><a href="#">党团建设</a></li>
+    <li><a href="#">招生就业</a></li>
+  </ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,161 @@
+<HTML>
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=gb2312">
+<TITLE>用户注册页面</TITLE>
+<LINK href="image/style.css" type="text/css" rel="stylesheet">
+<SCRIPT language="javascript">
+<!--检查邮件-->
+function  checkMail(){						
+ 	var str=document.myform.email;
+ 	var E1=str.value.indexOf("@",0);
+ 	var E2=str.value.indexOf(".",0);
+ 	if(str.value.length==0){
+		femail.innerHTML="<font color=red>不能为空</font>";
+	 	return false;
+ 	}else if(str.value.indexOf("@",0)==-1){
+		femail.innerHTML="<font color=red>必须包含@</font>";
+	 	return false; 	 
+ 	}else if(str.value.indexOf(".",0)==-1){
+		femail.innerHTML="<font color=red>必须包含.</font>";
+		return false;
+ 	}else if(str.value.indexOf("@",0)==0 || str.value.indexOf("@",0)==str.value.length-1 || str.value.indexOf(".",0)==0 || str.value.indexOf(".",0)==str.value.length-1){
+		femail.innerHTML="<font color=red>”@“或“.”不能在最前面，也不能在最后面<font>"
+		return false; 
+ 	}else if(str.value.indexOf("@",E1+1)>=0 || str.value.indexOf(".",E2+1)>=0){
+		femail.innerHTML="<font color=red>只能包含一个”@”或”.”<font>"
+		return false;
+ 	}else if(E2-E1<=1){
+		femail.innerHTML="<font color=red>”.”必须在”@”后面，且不能紧挨”@”<font>";
+		return false;
+ 	}else {
+	 	femail.innerHTML="<font color=green>√</font>";
+	 	return true;
+	}
+}
+<!--检查用户-->
+function checkUser(){  				
+	var name=document.myform.username;
+	var n=/^[a-zA-Z]/;
+	if(name.value.length<6){
+		fname.innerHTML="<font color=red>用户名不能为空，且不能少于6位</font>";
+		return false;
+	}else if(n.test(name.value)==false){
+		fname.innerHTML="<font color=red>用户名必须以字母开头</font>";
+		return false;
+	}else{
+		fname.innerHTML="<font color=green>√</font>";
+		return true;
+	}
+}   
+<!--检查密码-->
+function  checkpwd(){				
+	var pwd=document.myform.pwd;
+	if(pwd.value<6){
+		fpwd.innerHTML="<font color=red>密码不能为空且不能少于6位<font>"
+		return false;
+	}else{
+		fpwd.innerHTML="<font color=green>√<font>"
+		return true;
+	}	
+}
+<!--检查二次密码-->
+function  checkRpwd(){
+	var Rpwd=document.myform.rpwd;
+	var pwd=document.myform.pwd;
+	if(Rpwd.value==0){
+		frpwd.innerHTML="<font color=red>确认密码不能为空<font>";
+		return false;
+	}else if(pwd.value!==Rpwd.value){
+		frpwd.innerHTML="<font color=red>两次密码不一致<font>";
+		return false;
+	}else{
+		frpwd.innerHTML="<font colr=green>√<font>";
+		return true;
+	}
+}
+function checkForm(){
+	if(checkMail()&&checkUser()&&checkpwd()&&checkRpwd()){
+		return true;
+		}else{
+		return false;	
+			}
+
+	}
+</SCRIPT>
+</HEAD>
+<BODY>
+<DIV class="main">
+  <DIV id="logo"><IMG src="image/logo.gif"></DIV>
+  <DIV id="menu"><A href="login.html"><IMG src="image/menu1-1.gif"></A>
+  <A href="search.html"><IMG src="image/menu2-2.gif"></A>
+  <A href="intro.html"><IMG src="image/menu3-2.gif"></A></DIV>
+  <DIV id="menu-bg1">我的简历 | 个人搜索器 | 职位收藏夹 | 工作申请记录 | 退出 </DIV>
+  <!--用户注册开始-->
+  <DIV class="register">
+    <TABLE width="857" border="0" cellspacing="0" cellpadding="0">
+      <TR>
+        <TD><IMG src="image/register-top.gif"></TD>
+      </TR>
+      <TR>
+        <TD><TABLE width="100%" border="0" cellspacing="0" cellpadding="0">
+            <TR>
+              <TD background="image/register-line.gif" width="3"></TD>
+              <TD><FORM action="reg_success.html" method="post" name="myform" onSubmit="return checkForm()">
+                  <TABLE width="760" border="0" cellspacing="0" cellpadding="0" align="center">
+                    <TR>
+                      <TD class="register-bold">会员信息：<IMG src="image/dot_line_1.gif" align="absmiddle"></TD>
+                    </TR>
+                    <TR>
+                      <TD><TABLE width="96%" border="0" cellspacing="0" cellpadding="0" align="center">
+                          <TR>
+                            <TD width="15"><IMG src="image/register-arrow.gif"></TD>
+                            <TD class="register-td">E-mail：</TD>
+                            <TD width="180"><INPUT id="text_1" name="email" type="text" class="register-input" onBlur="checkMail()" ></TD> 
+                            <TD><div id="femail">请填写常用电子邮件</div></TD>
+                          </TR>
+                          <TR>
+                            <TD width="30"><IMG src="image/register-arrow.gif"></TD>
+                            <TD class="register-td">会&nbsp;员&nbsp;名：</TD>
+                            <TD><INPUT name="username" type="text" class="register-input"  onblur="checkUser()"></TD>
+                            <TD><div id="fname">会员名须以字母开头，至少6位</div></TD>
+                          </TR>
+                          <TR>
+                            <TD width="30"><IMG src="image/register-arrow.gif"></TD>
+                            <TD class="register-td">密&nbsp;&nbsp;&nbsp;&nbsp;码：</TD>
+                            <TD><INPUT name="pwd" type="password" class="register-input" onBlur="checkpwd()"></TD>
+                            <TD><DIV id="fpwd">密码设置至少6位</DIV></TD>
+                          </TR>
+                          <TR>
+                            <TD width="30"><IMG src="image/register-arrow.gif"></TD>
+                            <TD class="register-td">重复密码：</TD>
+                            <TD><INPUT name="rpwd" type="password" class="register-input" onBlur="checkRpwd()"></TD>
+                            <TD><DIV id="frpwd"></DIV></TD>
+                          </TR>
+                        </TABLE></TD>
+                    </TR>
+                    <TR>
+                      <TD><DIV class="register-bold"><IMG src="image/dot_line_2.gif" align="absmiddle"></DIV>
+                        <DIV align="center">
+                          <INPUT name="B1" type="submit" value="&nbsp;" onMouseOut="this.className='register-over'" onMouseOver="this.className='register-out'" class="register-over">
+                        </DIV></TD>
+                    </TR>
+                  </TABLE>
+                </FORM></TD>
+              <TD background="image/register-line.gif" width="3"></TD>
+            </TR>
+          </TABLE></TD>
+      </TR>
+      <TR>
+        <TD><IMG src="image/register-bottom.gif"></TD>
+      </TR>
+    </TABLE>
+  </DIV>
+</DIV>
+<DIV id="bottom-bg"class="bottom-bg">网站导航 | <A href="index.html" class="A-white">网站首页</A> | <A href="search.html" class="A-white">职位搜索</A> | <A href="login.html" class="A-white">Myjob</A> | <A href="register.html" class="A-white">用户注册</A> | <A href="login.html" class="A-white">用户登录</A> | <A href="intro.html" class="A-white">简历管理</A> | <A href="company.html" class="A-white">招聘公司</A></DIV>
+<DIV id="bottom" class="bottom">人才招聘 Email:hr@51job.com<BR>
+  个人求职 Email:club@51job.com　或垂询:800-820-5100 <BR>
+  未经本招聘网站同意，不得转载本网站之所有招聘信息及作品 <BR>
+  无忧工作网版权所有&copy;1999-2007<BR>
+  <A href="http://www.miibeian.gov.cn" target="_blank"><IMG src="image/bottom1.gif" border="0"></A></DIV>
+</BODY>
+</HTML>

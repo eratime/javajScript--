@@ -1,0 +1,169 @@
+<HTML>
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=gb2312">
+
+<TITLE>用户登录页面</TITLE>
+<LINK href="image/style.css" type="text/css" rel="stylesheet">
+
+
+<SCRIPT language="javascript">
+function checkInf(){
+var user=document.myform.username;
+var pwd=document.myform.pwd;
+if(user.value==""){
+alert("请输入会员名！");
+user.focus();
+return false;
+}
+
+if(pwd.value==""){
+alert("请输入密码！");
+pwd.focus();
+return false;
+}
+if(user.value!="admin" || pwd.value!="1234")
+  {
+   alert("用户名或密码不正确")
+return false;
+  }
+  else 
+  return true;
+
+}
+function check(){
+   if(checkInf() && validate()){
+	   alert("欢迎登入");
+	   return true;
+   }
+   else return false;
+
+}
+//设置一个全局的变量，便于保存验证码
+    var code;
+    function createCode(){
+        //首先默认code为空字符串
+        code = '';
+        //设置长度，这里看需求，我这里设置了4
+        var codeLength = 4;
+        var codeV = document.getElementById('testCode');
+        //设置随机字符
+        var random = new Array(0,1,2,3,4,5,6,7,8,9,'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R', 'S','T','U','V','W','X','Y','Z');
+        //循环codeLength 我设置的4就是循环4次
+        for(var i = 0; i < codeLength; i++){
+            //设置随机数范围,这设置为0 ~ 36
+             var index = Math.floor(Math.random()*36);
+             //字符串拼接 将每次随机的字符 进行拼接
+             code += random[index]; 
+        }
+        //将拼接好的字符串赋值给展示的Value
+        codeV.value = code;
+    }
+
+    //下面就是判断是否== 的代码，无需解释
+    function validate(){
+        var oValue = document.getElementById('code').value.toUpperCase();
+        if(oValue ==0){
+            alert('请输入验证码');
+			return false;
+        }else if(oValue != code){
+            alert('验证码不正确，请重新输入');
+            oValue = ' ';
+            createCode();
+			return false;
+        }else{
+            return true;
+        }
+    }
+
+    //设置此处的原因是每次进入界面展示一个随机的验证码，不设置则为空
+    window.onload = function (){
+
+        createCode();
+    }
+</SCRIPT>
+</HEAD>
+<BODY>
+
+<DIV class="main">
+  <DIV id="logo"><IMG src="image/logo.gif"></DIV>
+  <DIV id="menu"><A href="login.html"><IMG src="image/menu1-1.gif"></A><A href="search.html"><IMG src="image/menu2-2.gif"></A><A href="intro.html"><IMG src="image/menu3-2.gif"></A></DIV>
+  <DIV id="menu-bg1">我的简历 | 个人搜索器 | 职位收藏夹 | 工作申请记录 | 退出 </DIV>
+  
+<DIV class="register"><TABLE width="100%" border="0" cellspacing="0" cellpadding="0">
+  <TR><!--用户登录-->
+    <TD width="40%" align="right"><TABLE width="324" border="0" cellspacing="0" cellpadding="0">
+      <TR>
+        <TD><IMG src="image/Login_top.gif"></TD>
+    </TR>
+      <TR>
+        <TD><TABLE width="100%" border="0" cellspacing="0" cellpadding="0">
+          <TR>
+            <TD width="21"><IMG src="image/Login_left.gif"></TD>
+      <TD bgcolor="#FFFFF7" align="center" valign="middle" >
+        <FORM action="intro.html" method="post" name="myform" onSubmit="return check()">
+          <TABLE width="96%" border="0" cellspacing="0" cellpadding="0">
+            <TR>
+              <TD class="register-td">会员名：</TD>
+      <TD><INPUT name="username" type="text" class="register-input"></TD>
+    </TR>
+            <TR>
+              <TD class="register-td">密&nbsp;&nbsp;码：</TD>
+      <TD><INPUT name="pwd" type="password" class="register-input"></TD>
+    </TR>
+         <TR>
+              <TD class="register-td">验证码</TD>
+               <TD class="register-td"><INPUT id="code" type="text" class="register-input"></TD>
+      <TD><INPUT id="testCode" type="button" class="testCode" onClick="createCode()"></TD>
+    </TR>
+            <TR>
+              <TD colspan="2" align="center" height="50"><INPUT name="b1" type="submit" value="登录" onMouseOut="this.className='login-over'" onMouseOver="this.className='login-out'" class="login-over"></TD>
+    </TR><TR>
+      <TD colspan="2" align="center" height="50"><A href="register.html"><IMG src="image/login-1.gif"></A></TD>
+    </TR>
+  </TABLE>
+  </FORM>  </TD>
+      <TD width="21"><IMG src="image/Login_right.gif"></TD>
+    </TR>
+  </TABLE>  </TD>
+    </TR>
+      <TR>
+        <TD align="center"><IMG src="image/Login_bottom.gif"></TD>
+    </TR>
+  </TABLE></TD><!--右侧-->
+    <TD><TABLE width="100%" border="0" cellspacing="0" cellpadding="0">
+      <TR>
+        <TD width="100" align="center"><IMG src="image/pic1.jpg" vspace="10"></TD>
+      <TD><SPAN class="login-bold">我的简历</SPAN> <BR>
+        51job的简历中心，您可以在此创建自己专业的个性化的简历。</TD>
+    </TR>
+      <TR>
+        <TD align="center"><IMG src="image/pic2.jpg" vspace="5"></TD>
+      <TD><SPAN class="login-bold">找工作</SPAN><BR>
+        在茫茫职场中如何找工作？51job的职位搜索器助您一臂之力！</TD>
+    </TR>
+      <TR>
+        <TD align="center"><IMG src="image/pic3.jpg" vspace="5"></TD>
+      <TD><SPAN class="login-bold">在线申请</SPAN> <BR>
+        当您找到感兴趣的职位时，可以立即将您在51job上的简历在线<BR>
+        投递给招聘单位。</TD>
+    </TR>
+      <TR>
+        <TD align="center"><IMG src="image/pic4.jpg" vspace="5"></TD>
+      <TD><SPAN class="login-bold">我的搜索和订阅</SPAN> <BR>
+        设置并订阅您个性化的职位搜索器，51job会贴心的将理想的职<BR>
+        位发送到您的信箱中。</TD>
+    </TR>
+  </TABLE>  </TD>
+    </TR>
+  </TABLE>
+  </DIV>
+</DIV>
+<DIV id="bottom-bg"class="bottom-bg">网站导航 | <A href="index.html" class="A-white">网站首页</A> | <A href="search.html" class="A-white">职位搜索</A> | <A href="login.html" class="A-white">Myjob</A> | <A href="register.html" class="A-white">用户注册</A> | <A href="login.html" class="A-white">用户登录</A> | <A href="intro.html" class="A-white">简历管理</A> | <A href="company.html" class="A-white">招聘公司</A></DIV>
+<DIV id="bottom" class="bottom">人才招聘 Email:hr@51job.com<br>个人求职 Email:club@51job.com　或垂询:800-820-5100 
+<br>
+未经本招聘网站同意，不得转载本网站之所有招聘信息及作品 
+<br>
+无忧工作网版权所有&copy;1999-2007<br>
+<A href="http://www.miibeian.gov.cn" target="_blank"><IMG src="image/bottom1.gif" border="0"></A></DIV>
+</BODY>
+</HTML>

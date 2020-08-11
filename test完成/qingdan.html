@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<script language="javascript">
+function addtx()
+{
+	var add=window.showModalDialog("addtx.html","","dialogWinth=340px,dialogHeight=270px");
+	document.myform.add.value=add;
+	}
+function info()
+{
+	var add=document.myform.add.value;
+	var ff=confirm("您购买的商品如下：\n伯纳天纯狗粮：1件¥107;\n雷米高狗粮50KG:1件;\n福来恩滴剂:1件\n地址:"+add);
+	if(ff)
+	{
+		alert("您提交成功！");
+		}
+	}
+</script>
+</head>
+
+<body>
+<form name="myform">
+<table width="200" border="1">
+  <tr>
+    <td><img src="images/acount.png" width="1221" height="452" /></td>
+  </tr>
+  <tr>
+    <td><a href="javascript:addtx()">填写收货地址</a><input name="add" type="text" /><input name="" type="button" value="结算" onclick="info()"/></td>
+  </tr>
+</table>
+
+
+</form>
+</body>
+</html>
